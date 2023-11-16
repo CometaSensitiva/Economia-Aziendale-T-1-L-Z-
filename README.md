@@ -6,4 +6,5 @@ Questo repository contiene il modulo per il corso di Economia Aziendale T-1(L-Z)
 
 Clicca sul badge qui sotto per visualizzare il PDF generato del modulo:
 
-[![Visualizza PDF](https://img.shields.io/badge/Visualizza%20PDF-File%20Latex-blue)](https://github.com/CometaSensitiva/Economia-Aziendale-T-1-L-Z-/actions/workflows/compile_tex.yml)
+[![Visualizza PDF](https://img.shields.io/badge/Visualizza%20PDF-File%20Latex-blue)](https://NOME_UTENTE.github.io/NOME_REPO/Formulario.pdf)
+
