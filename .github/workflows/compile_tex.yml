@@ -18,6 +18,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y texlive-xetex tex4ht
 
+    - name: Install latexmk
+      run: sudo apt-get install -y latexmk
+
     - name: Build LaTeX document and Convert to HTML
       run: |
         latexmk -pdf -interaction=nonstopmode -f docs/Formulario.tex
