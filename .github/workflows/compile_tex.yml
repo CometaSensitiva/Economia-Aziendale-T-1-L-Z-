@@ -1,0 +1,29 @@
+name: Compile LaTeX
+
+on:
+  push:
+    branches:
+      - main # o il nome della tua branch principale
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up LaTeX
+      uses: dante-ev/latex-action@v2
+      with:
+        root_file: Formulario.tex # il nome del tuo file principale .tex
+
+    - name: Build LaTeX document
+      run: |
+        latexmk -pdf -interaction=nonstopmode Formulario.tex
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: formulario-pdf
+        path: Formulario.pdf # il nome del tuo file PDF generato
