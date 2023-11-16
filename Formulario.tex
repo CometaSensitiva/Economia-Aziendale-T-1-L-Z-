@@ -1,0 +1,1154 @@
+\documentclass{book}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{array} 
+\usepackage{adjustbox}
+\usepackage{geometry} 
+\usepackage{longtable} 
+\usepackage{ragged2e}
+\usepackage{pdfpages}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{lipsum}
+
+\newcommand{\lorem}{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat justo eu odio dignissim, vel consequat turpis malesuada. Integer vel varius odio.}
+\newcommand{\Avviamento}{Rappresenta il valore attribuito a fattori immateriali in seguito a un'acquisizione o fusione.}
+\newcommand{\ConcessioniAmmortizzare}{Si riferisce a diritti di utilizzo o concessioni sottoposti ad ammortamento nel tempo.}
+\newcommand{\ConcessioniAmmortizzareNetto}{Stessa categoria di attività di cui sopra, considerando l'ammortamento accumulato al netto del fondo.}
+\newcommand{\CostiRicercaCapitalizzati}{Rappresentano i costi di ricerca trattati come un'attività nell'attivo.}
+\newcommand{\CostiRicercaSviluppoCapitalizzati}{Simile alla voce sopra, include costi di ricerca e sviluppo.}
+\newcommand{\DirittiIndustriali}{Include diritti relativi a proprietà intellettuale, come brevetti e marchi.}
+\newcommand{\MarchiBrevettiIndustriali}{Rappresenta il valore contabile di marchi e brevetti, attività intangibili.}
+\newcommand{\AttrezzatureIndustrialiNetto}{Valore contabile delle attrezzature industriali al netto dell'ammortamento.}
+\newcommand{\FabbricatiImpiantiMacchinari}{Costo totale di fabbricati, impianti e macchinari prima dell'ammortamento.}
+\newcommand{\FondoAmmortamentoIndustriali}{Rappresenta l'ammortamento accumulato di beni industriali nel tempo.}
+\newcommand{\FondoAmmortamentoImmobiliCivili}{Fondo destinato all'ammortamento di immobili civili.}
+\newcommand{\ImmobiliCivili}{Rappresenta immobili civili, come uffici o edifici commerciali.}
+\newcommand{\ImmobiliNonIndustriali}{Include immobili non utilizzati per scopi industriali.}
+\newcommand{\ImpiantiMacchinariNetto}{Valore contabile di impianti e macchine al netto dell'ammortamento.}
+\newcommand{\ValoreComplessivoImpiantiMacchine}{Valore complessivo di impianti e macchine utilizzati nell'attività.}
+\newcommand{\ValoreContabileTerreni}{Rappresenta il valore contabile dei terreni detenuti.}
+\newcommand{\ValoreComplessivoTerreniFabbricatiNetto}{Valore contabile complessivo di terreni e fabbricati al netto dell'ammortamento.}
+\newcommand{\CreditiFinanziariLungoTermine}{Rappresentano somme da ricevere da terzi a lungo termine, come prestiti concessi.}
+\newcommand{\CreditiFinanziariVsControllata}{Indicano crediti detenuti da un'azienda verso una società controllata, riflettendo una relazione finanziaria.}
+\newcommand{\PartecipazioneCollegata}{Indica la quota di partecipazione in un'impresa collegata.}
+\newcommand{\PartecipazioniStrategicheControllate}{Rappresentano la quota di partecipazione in imprese controllate.}
+\newcommand{\PartecipazioniStrategicheControllateNette}{Quota di partecipazione in imprese controllate al netto di passività o ammortamenti.}
+\newcommand{\BancheAttive}{Rappresenta il saldo positivo dei conti bancari dell'azienda.}
+\newcommand{\CambialiAttive}{Indica l'ammontare delle cambiali che l'azienda deve ricevere.}
+\newcommand{\CambialiCommercialiAttive}{Si riferisce alle cambiali legate a transazioni commerciali che l'azienda deve ricevere.}
+\newcommand{\Cassa}{Rappresenta il saldo di denaro contante detenuto dall'azienda.}
+\newcommand{\CostiAnticipati}{Solitamente rappresenta importi pagati in anticipo per servizi futuri.}
+\newcommand{\CreditoVsClienti}{Indica il saldo positivo dovuto all'azienda da parte dei clienti.}
+\newcommand{\CreditoVsCollegata}{Rappresenta un credito detenuto dall'azienda verso una società collegata.}
+\newcommand{\CreditiCommerciali}{Rappresenta somme che l'azienda deve ricevere da fornitori o altri creditori commerciali.}
+\newcommand{\CreditiCommercialiVsImpreseControllate}{Indica crediti detenuti da un'azienda verso una società controllata.}
+\newcommand{\DepositiPostaliAttiviBreve}{Rappresenta depositi a breve termine detenuti presso istituti postali.}
+\newcommand{\DenaroValoriCassa}{Indica il totale del denaro contante e dei valori detenuti dalla società.}
+\newcommand{\EffettiCommercialiAttivi}{Si riferisce a effetti (strumenti finanziari) che l'azienda deve ricevere.}
+\newcommand{\FondoSvalutazioneCrediti}{Rappresenta un fondo che riduce il valore contabile dei crediti in caso di svalutazione. Il segno meno indica una riduzione dell'attivo.}
+\newcommand{\MagazzinoMateriePrime}{Rappresenta il valore contabile delle materie prime detenute dall'azienda.}
+\newcommand{\MagazzinoProdottiFiniti}{Indica il valore contabile dei prodotti finiti detenuti dall'azienda.}
+\newcommand{\MagazzinoSemilavorati}{Rappresenta il valore contabile dei semilavorati detenuti dall'azienda.}
+\newcommand{\RateiAttivi}{Rappresentano costi che sono stati anticipati o sono stati registrati prima di essere effettivamente spesati.}
+\newcommand{\RateiERiscontiAttivi}{Possono includere sia costi anticipati che altri adattamenti contabili per riflettere in modo accurato la situazione finanziaria.}
+\newcommand{\Rimanenze}{Indica il totale del valore contabile delle materie prime, dei prodotti finiti e dei semilavorati detenuti dall'azienda.}
+\newcommand{\RimanenzeFinaliMateriePrime}{Rappresenta il valore finale delle materie prime rimanenti alla fine del periodo contabile.}
+\newcommand{\RimanenzeFinaliProdottiFinitiSemilavorati}{Indica il valore finale dei prodotti finiti e semilavorati rimanenti alla fine del periodo contabile.}
+\newcommand{\TitoliImmediatamenteNegoziabili}{Rappresenta titoli di investimento che possono essere rapidamente convertiti in denaro.}
+\newcommand{\TitoliInPortafoglioNonImmob}{Si riferisce a titoli detenuti come investimenti che non sono classificati come immobilizzazioni, ma come attività correnti.}
+\newcommand{\AltriDebitiFinOltreEsercizio}{Rappresenta i debiti finanziari a lungo termine che devono essere pagati oltre l'esercizio corrente.}
+\newcommand{\AltriDebitiFinOltreEsercizioSucc}{Indica debiti finanziari a lungo termine che devono essere pagati oltre l'esercizio successivo a quello corrente.}
+\newcommand{\DebitiObbligazionariMLTermine}{Rappresenta debiti obbligazionari che devono essere pagati a medio o lungo termine.}
+\newcommand{\DebitiObbligazionariLT}{Indica debiti obbligazionari che devono essere pagati a lungo termine.}
+\newcommand{\FondoConcorsiPremio}{Rappresenta un fondo dedicato a coprire premi o pagamenti associati a concorsi o iniziative simili.}
+\newcommand{\FondoRischiEOneri}{Rappresenta un fondo destinato a coprire rischi e oneri imprevisti o futuri dell'azienda.}
+\newcommand{\FondoRischiEOneriAlt}{Indica un fondo simile a quello sopra, destinato a coprire rischi e oneri imprevisti o futuri dell'azienda.}
+\newcommand{\FondiRischiDiversi}{Rappresenta fondi dedicati a coprire rischi di varia natura nell'attività aziendale.}
+\newcommand{\Mutui}{Rappresenta prestiti a lungo termine, spesso garantiti da un'ipoteca su beni immobili.}
+\newcommand{\MutuoNettoQuotaScadenza}{Indica l'ammontare netto di un mutuo, dedotto l'importo che deve essere rimborsato entro un periodo di tempo specifico.}
+\newcommand{\MutuiPrestitiObbligazionari}{Rappresenta l'insieme di mutui e prestiti obbligazionari che l'azienda ha assunto.}
+\newcommand{\Obbligazioni}{Rappresenta titoli di debito emessi dall'azienda come forma di finanziamento, che saranno rimborsati in futuro.}
+\newcommand{\TrattamentoFineRapporto}{Indica passività associate a costi di risoluzione dei rapporti di lavoro, come indennità di fine rapporto.}
+\newcommand{\TFR}{Rappresenta un fondo aziendale destinato a coprire i costi associati al trattamento di fine rapporto dei dipendenti.}
+\newcommand{\AltriDebitiFinEntroEsercizio}{Rappresenta debiti finanziari a breve termine che devono essere saldati entro la fine dell'esercizio contabile.}
+\newcommand{\AnticipiDaClienti}{Indica i pagamenti ricevuti in anticipo da clienti per beni o servizi che saranno forniti in futuro.}
+\newcommand{\DebitiBreveVersoBanche}{Rappresenta debiti nei confronti delle banche che devono essere saldati nel breve termine.}
+\newcommand{\DebitiFinVsBancheCCorrente}{Si riferisce a debiti finanziari verso banche che sono classificati come conto corrente, indicando spesso una linea di credito.}
+\newcommand{\DebitiObbligazionariQuotaScadenza}{Rappresenta la porzione di debiti obbligazionari che deve essere saldata entro una scadenza specifica.}
+\newcommand{\DebitiObbligazionariBreve}{Indica debiti obbligazionari che devono essere saldati nel breve termine.}
+\newcommand{\DebitiTributari}{Rappresenta debiti nei confronti dell'erario, ovvero somme che devono essere pagate come imposte o tasse.}
+\newcommand{\DebitiVsFornitori}{Indica somme dovute a fornitori per beni o servizi forniti.}
+\newcommand{\DebitiVsFornitoriEsercizio}{Rappresenta somme dovute a fornitori specificamente per transazioni legate all'esercizio corrente.}
+\newcommand{\MutuoQuotaCapitaleScadenza}{Indica la parte del pagamento del mutuo che rappresenta il capitale da restituire.}
+\newcommand{\MutuiScadenzaEntroAnno}{Rappresenta mutui che devono essere rimborsati entro un anno.}
+\newcommand{\QuotaMutuoScadenza}{Rappresenta una porzione del mutuo che deve essere rimborsata entro una scadenza specifica.}
+\newcommand{\RateiRiscontiPassivi}{Rappresentano passività contabili associate a costi o ricavi che sono stati registrati ma non ancora completamente riconosciuti nel bilancio.}
+\newcommand{\RateiRiscontiPassiviCostiSospesi}{Si riferisce a passività contabili specifiche, come costi sospesi, che devono ancora essere riconosciute completamente.}
+\newcommand{\RateiPassivi}{Indica passività contabili associate a costi o ricavi che devono ancora essere completamente riconosciuti.}
+\newcommand{\RiscontiPassivi}{Rappresenta somme che l'azienda ha ricevuto anticipatamente ma che deve ancora erogare o fornire.}
+\newcommand{\TrattamentoFineRapportoUtilizzoBreve}{Indica l'utilizzo a breve termine delle risorse destinate al trattamento di fine rapporto dei dipendenti.}
+\newcommand{\DebitiFinVsBancheCCorrenteAlt}{Si riferisce a debiti finanziari verso banche, spesso associati a conti correnti bancari.}
+\newcommand{\FornitoriEsercizio}{Indica somme dovute a fornitori specificamente per transazioni legate all'esercizio corrente.}
+\newcommand{\AzioniProprie}{Rappresenta azioni acquistate e detenute dalla stessa società, utilizzate per varie ragioni come annullamento o programmi incentivanti.}
+\newcommand{\CapitaleSociale}{Importo totale degli investimenti dei soci o azionisti in una società, fondamentale per la struttura finanziaria aziendale.}
+\newcommand{\RiservaLegale}{Riserva obbligatoria costituita per legge per proteggere creditori e garantire stabilità patrimoniale.}
+\newcommand{\RiservaSovrapprezzoAzioni}{Riserva creata quando azioni sono emesse e vendute a un prezzo superiore al valore nominale, registrando la differenza.}
+\newcommand{\RiservaStatutaria}{Riserva creata in conformità alle disposizioni statutarie aziendali per scopi specifici o precauzionali.}
+\newcommand{\RiservaStraordinaria}{Riserva per registrare eventi eccezionali al di fuori delle attività operative, utilizzata per circostanze impreviste.}
+\newcommand{\Riserve}{Termine generale per indicare varie riserve aziendali, inclusi utili, sovrapprezzo azioni, legale, statutaria e straordinaria.}
+\newcommand{\RiserveUtili}{Riserve costituite con utili accumulati nel tempo, distribuibili come dividendi o per scopi aziendali.}
+\newcommand{\RiserveUtiliPortatiANuovo}{Riserve di utili trasferite o portate a nuovo nell'esercizio successivo, incorporando nel capitale o altre riserve.}
+\newcommand{\UtileEsercizio}{Profitto netto ottenuto dall'azienda durante un periodo contabile, differenza tra ricavi e costi, distribuibile come dividendi o reinvestito.}
+\newcommand{\RicaviVendite}{L'ammontare totale derivante dalla vendita di beni o servizi, rappresenta il reddito principale dell'azienda.}
+\newcommand{\ResiSuVendite}{L'importo dedotto dai ricavi a causa di beni o servizi restituiti, rappresenta una riduzione del totale delle vendite.}
+\newcommand{\AltriRicaviProventi}{Entrate aggiuntive derivanti da fonti diverse dalle vendite principali, possono includere guadagni non operativi o proventi atipici specifici dell'attività aziendale.}
+
+\newcommand{\AcquistiMateriePrime}{La quantità totale di materie prime acquistate durante un periodo contabile per essere utilizzate nella produzione di beni o servizi.}
+\newcommand{\MagazzinoMateriePrimeFinale}{La quantità di materie prime rimaste in magazzino al termine di un periodo contabile.}
+\newcommand{\RimanenzeInizialiMateriePrime}{L'ammontare totale delle materie prime presenti in magazzino all'inizio di un periodo contabile, che costituiscono il saldo residuo delle materie prime non utilizzate nel periodo precedente.}
+\newcommand{\AcquistiServiziIndustriali}{La spesa totale sostenuta per l'acquisto di servizi necessari per l'attività industriale dell'azienda.}
+\newcommand{\AmmortamentoAnticipatoBeniIndustriali}{L'ammortamento accelerato di beni industriali, che rappresenta la distribuzione contabile dell'ammortamento su un periodo di tempo più breve rispetto alla loro vita utile stimata.}
+\newcommand{\AmmortamentoBeniIndustriali}{La distribuzione sistematica del costo di beni industriali su un periodo di tempo, riflettendo il consumo graduale di tali beni durante la loro vita utile.}
+\newcommand{\AmmortamentiIndustriali}{L'insieme delle distribuzioni contabili per l'ammortamento di varie attività industriali come impianti, macchinari e beni immateriali.}
+\newcommand{\AmmortamentoImpiantiMacchinariFabbricati}{La distribuzione contabile dell'ammortamento relativo a impianti, macchinari e fabbricati nel corso del tempo.}
+\newcommand{\AmmortamentoMarchiBrevettiIndustriali}{La distribuzione contabile dell'ammortamento relativo a marchi e brevetti industriali nel corso del tempo.}
+\newcommand{\ConsulenzeIndustriali}{Costi associati a servizi di consulenza specifici per l'industria, come ad esempio consulenze sulla produzione o processi industriali.}
+\newcommand{\CostiVariServiziProduzione}{Spese diverse correlate ai servizi di produzione che non rientrano direttamente nei costi del lavoro o nell'acquisto di materiali.}
+\newcommand{\CostoLavoroIndustriale}{La spesa complessiva sostenuta per il personale coinvolto nella produzione industriale, inclusi salari e oneri sociali.}
+\newcommand{\QuotaAccantonamentoTFRIndustriale}{L'ammontare destinato a costituire riserve per il Trattamento di Fine Rapporto (TFR) relativo al personale industriale.}
+\newcommand{\QuotaAmmortamentoImmobiliMateriali}{La distribuzione contabile dell'ammortamento relativo a immobili materiali utilizzati nell'ambito dell'attività industriale.}
+\newcommand{\QuotaAmmortamentoBrevettiIndustriali}{La distribuzione contabile dell'ammortamento relativo a brevetti industriali nel corso del tempo.}
+\newcommand{\QuotaAmmortamentiIndustriali}{La somma totale delle distribuzioni contabili per l'ammortamento di varie attività industriali.}
+\newcommand{\QuotaTFRIndustriale}{L'importo destinato a costituire riserve per il Trattamento di Fine Rapporto (TFR) relativo al personale industriale.}
+\newcommand{\SalariOneriIndustriali}{La spesa complessiva sostenuta per i salari e gli oneri sociali associati al personale industriale.}
+\newcommand{\StipendiPersonaleProduzione}{La spesa totale sostenuta per i salari del personale coinvolto nella produzione industriale.}
+\newcommand{\TrattamentoFineRapportoIndustriale}{I costi associati ai benefici di fine rapporto per il personale industriale, inclusi i fondi destinati al Trattamento di Fine Rapporto (TFR).}
+\newcommand{\MagazzinoSemilavoratiIniziale}{La quantità di semilavorati presenti in magazzino all'inizio di un periodo contabile.}
+\newcommand{\MagazzinoSemilavoratiFinale}{La quantità di semilavorati rimasta in magazzino al termine di un periodo contabile.}
+\newcommand{\RimanenzeInizialiProdottiFinitiSemilavorati}{L'ammontare totale di prodotti finiti e semilavorati presenti in magazzino all'inizio di un periodo contabile.}
+\newcommand{\RimanenzeInizialiSemilavoratiProdottiFiniti}{L'ammontare totale di semilavorati e prodotti finiti presenti in magazzino all'inizio di un periodo contabile.}
+\newcommand{\RimanenzeFinaliSemilavoratiProdottiFiniti}{L'ammontare totale di semilavorati e prodotti finiti rimasti in magazzino al termine di un periodo contabile.}
+\newcommand{\AccantonamentoFondoSvalutazioneCrediti}{Riserva finanziaria costituita per coprire eventuali perdite derivanti dalla svalutazione dei crediti.}
+\newcommand{\AccantonamentiVariRischiGestioneNonIndividuabili}{Riserve finanziarie destinate a coprire rischi specifici non individuabili, che possono influire sulla gestione aziendale.}
+\newcommand{\AmmortamentiAmministrativiCommerciati}{Distribuzione contabile del costo di attività amministrative e commerciali su un periodo di tempo, riflettendo il loro consumo graduale.}
+\newcommand{\CostiAmministrativi}{Spese sostenute per supportare le attività di gestione amministrativa dell'azienda, incluse le spese per il personale amministrativo.}
+\newcommand{\CostiAmministrativiCommerciali}{L'insieme delle spese sostenute sia per le attività amministrative che commerciali dell'azienda.}
+\newcommand{\CostoLavoroCommerciale}{La spesa complessiva sostenuta per il personale coinvolto nelle attività commerciali dell'azienda.}
+\newcommand{\CostoLavoroAmministrativoGenerale}{La spesa totale sostenuta per il personale coinvolto nelle attività amministrative e generali dell'azienda.}
+\newcommand{\AcquistiServiziGenerali}{La spesa totale sostenuta per l'acquisto di servizi generali necessari per il funzionamento dell'azienda.}
+\newcommand{\Pubblicita}{La spesa sostenuta per la promozione e la pubblicità dei prodotti o servizi dell'azienda.}
+\newcommand{\ProvvigioniAgentiVendita}{Commissioni pagate agli agenti di vendita in base alle transazioni concluse.}
+\newcommand{\QuotaAmmortamentoImmImmateriali}{La distribuzione contabile dell'ammortamento relativo a beni immateriali su un periodo di tempo.}
+\newcommand{\QuotaTFRAmministrativo}{La parte dell'accantonamento destinata a coprire il Trattamento di Fine Rapporto (TFR) relativo al personale amministrativo.}
+\newcommand{\QuotaTFRAmministrativoCommerciale}{La parte dell'accantonamento destinata a coprire il Trattamento di Fine Rapporto (TFR) relativo al personale amministrativo e commerciale.}
+\newcommand{\SalariOneriAmministrativi}{La spesa totale sostenuta per i salari e gli oneri sociali associati al personale amministrativo.}
+\newcommand{\SpeseConsulenzaDirezione}{Costi sostenuti per l'assistenza di consulenti direzionali o manageriali.}
+\newcommand{\SvalutazioneCrediti}{Riduzione del valore contabile dei crediti per riflettere una stima di incertezza sulla loro recuperabilità.}
+\newcommand{\StipendiOneriAmministrativiCommerciati}{La spesa totale sostenuta per i salari e gli oneri sociali associati al personale amministrativo e commerciale.}
+\newcommand{\TrattamentoFineRapportoAmministrativo}{I costi associati ai benefici di fine rapporto per il personale amministrativo, inclusi i fondi destinati al Trattamento di Fine Rapporto (TFR).}
+\newcommand{\TrattamentoFineRapportoCommerciale}{I costi associati ai benefici di fine rapporto per il personale commerciale, inclusi i fondi destinati al Trattamento di Fine Rapporto (TFR).}
+\newcommand{\AffittoAttivoImmobileCivile}{Provento derivante dall'affitto di un immobile civile da parte dell'azienda.}
+\newcommand{\AffittoImmobiliCivili}{Costo sostenuto per l'affitto di immobili civili necessari alle attività aziendali.}
+\newcommand{\AltriProventiFinanziariInteressiAttivi}{Proventi finanziari aggiuntivi e interessi attivi non riconducibili alle partecipazioni o ai titoli.}
+\newcommand{\AmmortamentoImmobileCivile}{Distribuzione contabile del costo di un immobile civile su un periodo di tempo, riflettendo il suo consumo graduale.}
+\newcommand{\CostiGestioneImmobileCivile}{Spese sostenute per la gestione quotidiana di un immobile civile, come manutenzione e servizi.}
+\newcommand{\InteressiAttivi}{Guadagni derivanti da interessi su investimenti o prestiti effettuati dall'azienda.}
+\newcommand{\ProventiAccessori}{Entrate aggiuntive non riconducibili alle attività principali dell'azienda.}
+\newcommand{\ProventiDaPartecipazioni}{Guadagni derivanti dalla partecipazione in altre società.}
+\newcommand{\ProventiDaPartecipazioniFinanziarie}{Guadagni derivanti dalla partecipazione in altre società, con un focus finanziario.}
+\newcommand{\ProventiDaTitoli}{Entrate generate attraverso la detenzione e la negoziazione di titoli finanziari.}
+\newcommand{\ProventiFinanziariInteressiAttivi}{Ingressi finanziari derivanti da investimenti e interessi su prestiti.}
+\newcommand{\ProventiOperativiNonCaratteristici}{Entrate che non sono tipiche o ricorrenti nelle normali operazioni aziendali.}
+\newcommand{\RivalutazioneDiTitoli}{Aumento del valore contabile dei titoli posseduti dall'azienda.}
+\newcommand{\SvalutazioneDiPartecipazioni}{Riduzione del valore contabile delle partecipazioni in altre società.}
+\newcommand{\SvalutazioniDiTitoliEPartecipazioni}{Riduzione del valore contabile complessivo di titoli e partecipazioni aziendali.}
+\newcommand{\InteressiPassivi}{Pagamenti periodici effettuati dall'azienda per l'uso di risorse finanziarie altrui, come prestiti o debiti.}
+\newcommand{\OneriFinanziariObbligazionario}{Costi associati all'ottenimento di finanziamenti attraverso l'emissione di obbligazioni, inclusi gli interessi e altri oneri correlati.}
+\newcommand{\OneriFinanziariCCorrente}{Costi finanziari sostenuti in relazione a un conto corrente aziendale, che possono includere interessi o altre spese finanziarie.}
+\newcommand{\OneriFinanziariMutuo}{Costi finanziari associati a un prestito garantito da un mutuo, che possono comprendere interessi e altri oneri correlati.}
+\newcommand{\Minusvalenza}{Perdita finanziaria risultante dalla vendita di un'attività a un prezzo inferiore al suo valore contabile.}
+\newcommand{\OneriStraordinariPassivi}{Costi eccezionali sostenuti dall'azienda che non sono parte delle sue attività operative regolari e che influenzano negativamente il risultato economico.}
+\newcommand{\PlusvalenzaAlienazione}{Guadagno finanziario ottenuto dalla vendita di un'attività a un prezzo superiore al suo valore contabile.}
+\newcommand{\PlusvalenzaCespiti}{Guadagno derivante dalla cessione di beni o attività aziendali a un valore superiore al loro valore contabile.}
+\newcommand{\ProventiStraordinari}{Entrate eccezionali che derivano da eventi non ricorrenti e non correlati alle normali attività operative dell'azienda.}
+\newcommand{\ProventiStraordinariAttivi}{Entrate straordinarie che contribuiscono positivamente al risultato economico dell'azienda.}
+\newcommand{\SopravvenienzaPassivaAccertamentoFiscale}{Passività derivante dalla determinazione di importi fiscali aggiuntivi in seguito a revisioni fiscali o accertamenti delle autorità fiscali.}
+\newcommand{\roa}{ROA (Return on Assets)}
+\newcommand{\roaDesc}{Misura la redditività degli attivi, indicando quanto reddito viene generato rispetto al totale degli asset.}
+\newcommand{\roe}{ROE (Return on Equity)}
+\newcommand{\roeDesc}{Esprime la redditività in relazione all'equity degli azionisti, rivelando quanto guadagno viene generato rispetto al capitale proprio.}
+\newcommand{\ros}{ROS (Return on Sales)}
+\newcommand{\rosDesc}{Valuta la redditività delle vendite, mostrando la percentuale di profitto rispetto al fatturato.}
+\newcommand{\roi}{ROI (Return on Investment)}
+\newcommand{\roiDesc}{Indica l'efficienza degli investimenti, confrontando il guadagno con il costo dell'investimento.}
+\newcommand{\upa}{Utile per Azione}
+\newcommand{\upaDesc}{Rappresenta l'ammontare dell'utile netto attribuibile per ciascuna azione in circolazione.}
+\newcommand{\il}{Indice di Liquidità}
+\newcommand{\ilDesc}{Valuta la capacità di un'azienda di coprire gli impegni correnti con gli asset liquidi.}
+\newcommand{\ilr}{Indice di Liquidità Ristretta}
+\newcommand{\ilrDesc}{Misura la capacità di far fronte agli obblighi correnti, escludendo gli stock.}
+\newcommand{\td}{Tasso di Indebitamento}
+\newcommand{\tdDesc}{Indica la percentuale degli asset finanziati attraverso il debito.}
+\newcommand{\ii}{Indice di Indebitamento}
+\newcommand{\iiDesc}{Esprime il rapporto tra il debito e il capitale proprio.}
+\newcommand{\ici}{Indice di Copertura degli Interessi}
+\newcommand{\iciDesc}{Mostra la capacità di un'azienda di coprire gli interessi sul debito.}
+\newcommand{\gi}{Grado di Indebitamento}
+\newcommand{\giDesc}{Esprime la percentuale degli asset finanziati attraverso il debito.}
+\newcommand{\lf}{Leva Finanziaria}
+\newcommand{\lfDesc}{Misura l'effetto del debito sull'equity dell'azienda.}
+\newcommand{\rr}{Rotazione delle Rimanenze}
+\newcommand{\rrDesc}{Misura quante volte le rimanenze vengono rigirate durante un periodo.}
+\newcommand{\lr}{Livello delle Rimanenze}
+\newcommand{\lrDesc}{Indica l'ammontare delle rimanenze in relazione al costo delle merci vendute.}
+\newcommand{\imcc}{Incasso Medio dei Crediti Commerciali}
+\newcommand{\imccDesc}{Rappresenta il periodo medio in cui un'azienda riscuote i crediti dai clienti.}
+\newcommand{\gmdc}{Giacenza Media Debiti Commerciali}
+\newcommand{\gmdcDesc}{Indica il periodo medio entro il quale l'azienda paga i propri debiti commerciali.}
+\newcommand{\ccn}{Capitale Circolante Netto}
+\newcommand{\ccnDesc}{Esprime la differenza tra attività correnti e passività correnti, indicando la liquidità netta a breve termine disponibile.}
+
+\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
+
+\title{Formulario Economia Aziendale T-1 (L-Z)\thanks{Docente Laura Toschi}}
+\author{Michele Mazza}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\chapter{Teoria}
+\section{Stato Patrimoniale}
+\subsection{Stato Patrimoniale struttura}
+Di seguito la struttura di uno stato patrimoniale a liquidità/esigibilità crescente.
+\setlength{\extrarowheight}{5pt} % Regola il padding delle righe
+\begin{table}[ht]
+\adjustbox{max width=\textwidth,center}{ % Regola la larghezza della tabella
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Stato Patrimoniale} & Risultati intermedi\\
+\hline
+&\\
+Immobilizzazioni Immateriali& \\
+\hline
+&\\
+Immobilizzazioni Materiali & \\
+\hline
+&\\
+Immobilizzazioni Finanziarie & \\
+\hline
+\textbf{Attività Non Correnti $\lor$ Totale Immobilizzazioni} & \\
+\hline
+&\\
+Liquidità Differite & \\
+\hline
+&\\
+Disponibilità(Rimanenze) & \\
+\hline
+&\\
+Liquidità Immediate & \\
+\hline
+\textbf{Attività Correnti $\lor$ Circolante Attivo}& \\
+\hline
+\hline
+\textbf{Totale Attività}& \\
+\hline
+\end{tabular}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Stato Patrimoniale} & Risultati intermedi\\
+\hline
+&\\
+&\\
+&\\
+Passività Non Correnti(A M/L termine) $\lor$ Fondi e Debiti a M/L termine & \\
+\hline
+&\\
+&\\
+&\\
+Passività Correnti(A breve termine) $\lor$ Debiti a Breve & \\
+\hline
+\textbf{Passività} & \\
+\hline
+\hline
+&\\
+&\\
+&\\
+&\\
+\hline
+\textbf{Capitale Netto $\lor$ Patrimonio Netto} & \\
+\hline
+\hline
+\textbf{Totale Passività e Capitale Netto} & \\
+\hline
+\end{tabular}
+}
+\caption{Template stato patrimoniale.}
+\end{table}
+
+\newpage % Passa alla pagina successiva
+\maketitle
+\setlength{\extrarowheight}{5pt}% Adjust the padding here
+\subsection{Stato Patrimoniale voci}
+Ecco la suddivisione delle voci nello stato patrimoniale esaminate durante gli esercizi.
+Le voci sono elencate in ordine alfabetico per agevolare la consultazione; l'ordine proposto non segue nessun principio di crescente liquidità/esigibilità per garantire la massima efficacia.
+\begin{table}[ht]
+\adjustbox{max width=\textwidth,center}{ % Regola la larghezza della tabella
+\begin{tabular}{|l|c|l|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Stato Patrimoniale}} \\
+\hline
+Voce & Segno & Note & Note per indici \\
+\hline
+Avviamento & & \Avviamento & \\
+Concessioni, licenze e marchi da ammortizzare & & \ConcessioniAmmortizzare & \\
+Concessioni, licenze e marchi da ammortizzare (al netto del fondo ammortamento) & & \ConcessioniAmmortizzareNetto & \\
+Costi di ricerca capitalizzati & & \CostiRicercaCapitalizzati & \\
+Costi di ricerca e sviluppo capitalizzati & & \CostiRicercaSviluppoCapitalizzati & \\
+Diritti Industriali & & \DirittiIndustriali & \\
+Marchi e brevetti industriali & & \MarchiBrevettiIndustriali & \\
+\textbf{Immobilizzazioni immateriali} & & & \\
+Attrezzature industriali (al netto del fondo ammortamento) & & \AttrezzatureIndustrialiNetto & \\
+Fabbricati, impianti e macchinari (al costo di acquisto) & & \FabbricatiImpiantiMacchinari & \\
+\textcolor{red}{Fondo ammortamento industriali} & \textcolor{red}{-} & \textcolor{red}{\FondoAmmortamentoIndustriali} & \\
+\textcolor{red}{Fondo ammortamento imm. civile} & \textcolor{red}{-} & \textcolor{red}{\FondoAmmortamentoImmobiliCivili} & \\
+Immobili civili & & \ImmobiliCivili & \\
+Immobili non industriali & & \ImmobiliNonIndustriali & \\
+Impianti e macchinari (al netto del fondo ammortamento) & & \ImpiantiMacchinariNetto & \\
+Impianti e macchinari & & \ValoreComplessivoImpiantiMacchine & \\
+Terreni & & \ValoreContabileTerreni & \\
+Terreni e fabbricati (al netto del fondo ammortamento) & & \ValoreComplessivoTerreniFabbricatiNetto & \\
+\textbf{Immobilizzazioni materiali } & & & \\
+Crediti finanziari a lungo termine & & \CreditiFinanziariLungoTermine & \\
+Crediti finanziari vs controllata & & \CreditiFinanziariVsControllata & \\
+Partecipazione in collegata & & \PartecipazioneCollegata & \\
+Partecipazioni strategiche in imprese controllate & & \PartecipazioniStrategicheControllate & \\
+Partecipazioni strategiche in imprese controllate (nette) & & \PartecipazioniStrategicheControllateNette & \\
+\textbf{Immobilizzazioni finanziarie}  & & & \\
+\hline
+\textbf{Totale Attività Non Correnti} & & & \\
+\hline
+Banche attive & & \BancheAttive & \\
+Cambiali attive & & \CambialiAttive & \\
+Cambiali commerciali attive & & \CambialiCommercialiAttive & \\
+Cassa & & \Cassa & \\
+Costi anticipati  &  & \CostiAnticipati & \\
+Credito vs clienti & & \CreditoVsClienti & \\
+Credito vs collegata & & \CreditoVsCollegata & \\ 
+Crediti commerciali & & \CreditiCommerciali & \\
+Crediti commerciali verso imprese controllate & & \CreditiCommercialiVsImpreseControllate & \\
+Depositi postali attivi di breve & & \DepositiPostaliAttiviBreve & \\
+Denaro e valori in cassa & & \DenaroValoriCassa & \\
+Effetti commerciali attivi & & \EffettiCommercialiAttivi & \\
+\textcolor{red}{Fondo svalutazione crediti}  & \textcolor{red}{-} & \textcolor{red}{\FondoSvalutazioneCrediti} & \\
+Magazzino materie prime & & \MagazzinoMateriePrime & \\
+Magazzino prodotti finiti & & \MagazzinoProdottiFiniti & \\
+Magazzino semilavorati & & \MagazzinoSemilavorati & \\
+Ratei attivi & & \RateiAttivi & \\
+Ratei e risconti attivi (es. costi anticipati?) & & \RateiERiscontiAttivi & \\
+Rimanenze & & \Rimanenze & \\
+Rimanenze finali di materie prime & & \RimanenzeFinaliMateriePrime & \\
+Rimanenze finali di prodotti finiti e semilavorati & & \RimanenzeFinaliProdottiFinitiSemilavorati & \\
+Titoli immediatamente negoziabili & & \TitoliImmediatamenteNegoziabili & \\
+Titoli in portafoglio non costituenti immobilizzazioni & & \TitoliInPortafoglioNonImmob & \\
+\hline
+\textbf{Totale Attività Correnti} & & & \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Totale Attività}} \\
+\hline
+\end{tabular}
+}
+\caption{Template voci stato patrimoniale.}
+\end{table}
+\newpage
+\begin{table}[ht]
+\adjustbox{max width=\textwidth,center}{ % Regola la larghezza della tabella
+\begin{tabular}{|l|c|l|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Stato Patrimoniale}} \\
+\hline
+Voce & Segno & Note & Note per indici \\
+\hline
+Altri debiti finanziari (oltre l’esercizio) & & \AltriDebitiFinOltreEsercizio & Finanziario \\
+Altri debiti finanziari oltre l'esercizio successivo & & \AltriDebitiFinOltreEsercizioSucc & Finanziario \\
+Debiti obbligazionari a m/l termine & & \DebitiObbligazionariMLTermine & Finanziario \\
+Debiti obbligazionari di lungo termine & & \DebitiObbligazionariLT & Finanziario \\
+Fondo concorsi a premio & & \FondoConcorsiPremio & \\
+Fondo Rischi e Oneri & & \FondoRischiEOneri & \\
+Fondo rischi e oneri & & \FondoRischiEOneriAlt & \\
+Fondi rischi diversi & & \FondiRischiDiversi & \\
+Mutui & & \Mutui & Finanziario \\
+Mutuo (al netto della quota in scadenza) & & \MutuoNettoQuotaScadenza & Finanziario \\
+Mutui e prestiti obbligazionari & & \MutuiPrestitiObbligazionari & Finanziario \\
+Obbligazioni & & \Obbligazioni & Finanziario \\
+Trattamento di fine rapporto & & \TrattamentoFineRapporto & \\
+TFR & & \TFR & \\
+\hline
+\textbf{Totale Passività Non Correnti} & & & \\
+\hline
+Altri debiti finanziari (entro l’esercizio) & & \AltriDebitiFinEntroEsercizio & Finanziario \\
+Anticipi da Clienti & & \AnticipiDaClienti & \\
+Debiti a breve verso banche & & \DebitiBreveVersoBanche & Finanziario \\
+Debiti finanziari vs banche (c/corrente) & & \DebitiFinVsBancheCCorrente & Finanziario \\
+Debiti obbligazionari (quota in scadenza) & & \DebitiObbligazionariQuotaScadenza & Finanziario \\
+Debiti obbligazionari a breve & & \DebitiObbligazionariBreve & Finanziario \\
+Debiti tributari & & \DebitiTributari & Finanziario \\
+Debiti vs fornitori & & \DebitiVsFornitori & \\
+Debiti vs fornitori d'esercizio & & \DebitiVsFornitoriEsercizio & \\
+Fornitori d'esercizio & & \FornitoriEsercizio & \\
+Mutuo (quota capitale in scadenza) & & \MutuoQuotaCapitaleScadenza & Finanziario\\
+Mutui in scadenza entro l’anno & & \MutuiScadenzaEntroAnno & Finanziario \\
+Quota mutuo in scadenza & & \QuotaMutuoScadenza & Finanziario \\
+Ratei e risconti passivi & & \RateiRiscontiPassivi & \\
+Ratei e risconti passivi (es. costi sospesi) & & \RateiRiscontiPassiviCostiSospesi & \\
+Ratei passivi & & \RateiPassivi & \\
+Risconti passivi & & \RiscontiPassivi & \\
+Trattamento di fine rapporto (utilizzo a breve) & & \TrattamentoFineRapportoUtilizzoBreve & \\
+\hline
+\textbf{Totale Passività Correnti} & & & \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Totale Passività}} \\
+\hline
+\hline
+\textcolor{red}{Azioni proprie} & \textcolor{red}{-} & \textcolor{red}{\AzioniProprie} & \\
+Capitale sociale & & \CapitaleSociale & \\
+Riserva legale & & \RiservaLegale & \\
+Riserva sovrapprezzo azioni & & \RiservaSovrapprezzoAzioni & \\
+Riserva statutaria & & \RiservaStatutaria & \\
+Riserva straordinaria & & \RiservaStraordinaria & \\
+Riserve & & \Riserve & \\
+Riserve di utili & & \RiserveUtili & \\
+Riserve utili portati a nuovo & & \RiserveUtiliPortatiANuovo & \\
+Utile d'esercizio & & \UtileEsercizio & \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Totale Capitale Netto}} \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Totale Passività + Capitale Netto}} \\
+\hline
+\end{tabular}
+
+}
+\caption{Template voci stato patrimoniale.}
+\end{table}
+\newpage
+% Pagina 2: Conto Economico
+\setlength{\extrarowheight}{5pt}
+\section{Conto Economico}
+\subsection{Conto Economico struttura}
+Di seguito la categorizzazione delle voci nel conto economico relative al costo del venduto affrontate negli esercizi.
+\begin{table}[ht]
+\adjustbox{max width=\textwidth,center}{ % Regola la larghezza della tabella
+\begin{tabular}{|c|l|c|c|}
+\hline
+& \textbf{C.E a costo del venduto} & Risultati intermedi & Sigla \\
+\hline
+& & & \\
+\textbf{A} & \textbf{Ricavi} & & \\
+\hline
+& & & \\
+& Consumi Materie Prime & a & \\
+& & & \\
+& Altri Costi di produzione & b & \\
+& & & \\
+& Costi della produzione & a+b & \\
+& & & \\
+& Variazione Semilavorati e Finiti & c & \\
+\textbf{B} & \textbf{Costo Del Venduto }& a+b+c & \\
+\hline
+\textbf{C = A - B} & \textbf{Margine Lordo} & & \textbf{MOL} \\
+\hline
+& & & \\
+\textbf{D} & \textbf{Altri Costi Caratteristici (Operativi/Amministrativo/Commerciale/Generale)} & & \\
+\hline
+\textbf{E = C - D} & \textbf{Risultato Operativo Caratteristico} & & \textbf{EBITDA} \\
+\hline
+& & & \\
+\textbf{F} & \textbf{Altri Proventi e Costi (Oneri) Operativi non caratteristici (Accessori)} & & \\
+\hline
+\textbf{G = E - F} & \textbf{Risultato Operativo Complessivo} & & \textbf{EBIT} \\
+\hline
+& & & \\
+\textbf{H} & \textbf{Interessi Passivi (Oneri Finanziari)} & & \\
+\hline
+\textbf{I = G - H} & \textbf{Risultato Ordinario di Competenza} & & \\
+\hline
+& & & \\
+\textbf{L} & \textbf{Proventi e Costi(Oneri) Straordinari} & & \\
+\hline
+\textbf{M = I - L} & \textbf{Risultato Ante Imposte} & & \textbf{EBT} \\
+\hline
+& & & \\
+\textbf{N} & \textbf{Imposte sul reddito d'esercizio} & & \\
+\hline
+\textbf{O = M - N} & \textbf{Risultato Netto} & & \textbf{NI} \\
+\hline
+\end{tabular}
+}
+\caption{Template conto economico.}
+\end{table}
+
+\newpage % Passa alla pagina successiva
+\subsection{Conto Economico voci}
+Di seguito la struttura di un conto economico a costo del venduto.
+\setlength{\extrarowheight}{3.5pt}
+\begin{table}[ht]
+\adjustbox{max width=\textwidth,center}{ % Regola la larghezza della tabella
+\begin{tabular}{|c l|c|l|c|}
+\hline
+& Voci & Segno & Note & Ambiguità \\
+\hline
+& Ricavi dalle vendite & & \RicaviVendite & \\
+&  \textcolor{red}{Resi su vendite} &  \textcolor{red}{-} &  \textcolor{red}{\ResiSuVendite} & \\
+& Altri ricavi e proventi caratteristici & & \AltriRicaviProventi & \\
+
+\textbf{A} & \textbf{Ricavi} & & & \\
+\hline
+
+& Acquisti di materie prime & & & \\
+& \textcolor{red}{Magazzino materie prime finale} & \textcolor{red}{-} & \textcolor{red}{\MagazzinoMateriePrimeFinale} & \\
+& \textcolor{red}{Rimanenze finali di materie prime} & \textcolor{red}{-} & \textcolor{red}{\RimanenzeFinaliMateriePrime} & \\
+& Rimanenze iniziali di materie prime & & \RimanenzeInizialiMateriePrime & \\
+& \textbf{Consumi Materie Prime} & a & & \\
+& Acquisti di servizi industriali & & \AcquistiServiziIndustriali & \\
+& Ammortamento anticipato beni industriali & & \AmmortamentoAnticipatoBeniIndustriali & \\
+& Ammortamento beni industriali & & \AmmortamentoBeniIndustriali & \\
+& Ammortamenti industriali & & \AmmortamentiIndustriali & \\
+& Ammortamento impianti, macchinari e fabbricati & & \AmmortamentoImpiantiMacchinariFabbricati & \\
+& Ammortamento marchi e brevetti industriali & & \AmmortamentoMarchiBrevettiIndustriali & \\
+& Consulenze industriali & & \ConsulenzeIndustriali & \\
+& Costi vari per servizi di produzione & & \CostiVariServiziProduzione & \\
+& Costo del lavoro industriale & & \CostoLavoroIndustriale & \\
+& Quota accantonamento TFR industriale & & \QuotaAccantonamentoTFRIndustriale & \\
+& Quota Ammortamento Imm. Materiali & & \QuotaAmmortamentoImmobiliMateriali & \\
+& Quota ammortamento brevetti industriali & & \QuotaAmmortamentoBrevettiIndustriali & \\
+& Quota ammortamenti industriali & & \QuotaAmmortamentiIndustriali & \\
+& Quota TFR industriale & & \QuotaTFRIndustriale & \\
+& Salari e oneri industriali & & \SalariOneriIndustriali & \\
+& Stipendi personale di produzione & & \StipendiPersonaleProduzione & \\
+& Trattamento fine rapporto industriale & & \TrattamentoFineRapportoIndustriale & \\
+& \textbf{Altri Costi di produzione} & b & & \\
+& \textbf{Costi della produzione} & a+b & & \\
+
+
+& Magazzino semilavorati iniziale & & \MagazzinoSemilavoratiIniziale & \\
+& \textcolor{red}{Magazzino semilavorati finale} & \textcolor{red}{-} & \textcolor{red}{\MagazzinoSemilavoratiFinale} & \\
+& Rimanenze iniziali di prodotti finiti e semilavorati & & \RimanenzeInizialiProdottiFinitiSemilavorati & \\
+& \textcolor{red}{Rimanenze finali di prodotti finiti e semilavorati} & \textcolor{red}{-} & \textcolor{red}{\RimanenzeFinaliProdottiFinitiSemilavorati} & \\
+& Rimanenze iniziali di semilavorati e prodotti finiti & & \RimanenzeInizialiSemilavoratiProdottiFiniti & \\
+& \textcolor{red}{Rimanenze finali di semilavorati e prodotti finiti} & \textcolor{red}{-} & \textcolor{red}{\RimanenzeFinaliSemilavoratiProdottiFiniti} & \\
+c & \textbf{Variazione Semilavorati e Finiti} & & & \\
+\textbf{B} & \textbf{Costo Del Venduto} & a+b+c & & \\
+\hline
+\textbf{C=A-B} & \textbf{Margine Lordo} & \textbf{MOL} & & \\
+\hline
+& Accantonamento al fondo svalutazione crediti & & \AccantonamentoFondoSvalutazioneCrediti & \\
+& Accantonamenti vari per rischi di gestione non ind.li & & \AccantonamentiVariRischiGestioneNonIndividuabili & \\
+& Ammortamenti amministrativi e commerciali & & \AmmortamentiAmministrativiCommerciati & \\
+& Costi amministrativi & & \CostiAmministrativi & \\
+& Costi amministrativi e commerciali & & \CostiAmministrativiCommerciali & \\
+& Costo del lavoro commerciale & & \CostoLavoroCommerciale & \\
+& Costo lavoro Amministrativo e Generale  & & \CostoLavoroAmministrativoGenerale & \\
+& Acquisti di servizi generali & & \AcquistiServiziGenerali & \\
+& Pubblicità & & \Pubblicita & \\
+& Provvigioni agenti di vendita & & \ProvvigioniAgentiVendita & \\
+& Quota Ammortamento Imm. immateriali & & \QuotaAmmortamentoImmImmateriali & \\
+& Quota TFR amministrativo & & \QuotaTFRAmministrativo & \\
+& Quota TFR amministrativo e commerciale & & \QuotaTFRAmministrativoCommerciale & \\
+& Salari e oneri amministrativi & & \SalariOneriAmministrativi & \\
+& Spese di consulenza di direzione & & \SpeseConsulenzaDirezione & \\
+& Svalutazione crediti & & \SvalutazioneCrediti & \\
+& Stipendi e oneri amministrativi e commerciali & & \StipendiOneriAmministrativiCommerciati & \\
+& Trattamento fine rapporto amministrativo & & \TrattamentoFineRapportoAmministrativo & \\
+& Trattamento fine rapporto commerciale & & \TrattamentoFineRapportoCommerciale & \\
+\textbf{D} & \textbf{Altri Costi Caratteristici} & & & \\
+\hline 
+\textbf{E=C-D} & \textbf{Risultato Operativo Caratteristico} & \textbf{EBITDA} & & \\
+\hline
+& \textcolor{red}{Affitto attivo da immobile civile} & \textcolor{red}{-} & \textcolor{red}{\AffittoAttivoImmobileCivile} & \\
+& \textcolor{red}{Affitto da immobili civili} & \textcolor{red}{-} & \textcolor{red}{\AffittoImmobiliCivili} & \\
+& \textcolor{red}{Altri proventi finanziari e interessi attivi} & \textcolor{red}{-} & \textcolor{red}{\AltriProventiFinanziariInteressiAttivi} & \\
+& Ammortamento immobile civile & & \AmmortamentoImmobileCivile & \\
+& Costi gestione immobile civile & & \CostiGestioneImmobileCivile & \\
+& \textcolor{red}{Interessi attivi} & \textcolor{red}{-} & \textcolor{red}{\InteressiAttivi} & \\
+& \textcolor{red}{Proventi accessori} & \textcolor{red}{-} & \textcolor{red}{\ProventiAccessori} & \\
+& \textcolor{red}{Proventi da partecipazioni} & \textcolor{red}{-} & \textcolor{red}{\ProventiDaPartecipazioni} & \\
+& \textcolor{red}{Proventi da partecipazioni finanziarie} & \textcolor{red}{-} & \textcolor{red}{\ProventiDaPartecipazioniFinanziarie} & \\
+& \textcolor{red}{Proventi da titoli} & \textcolor{red}{-} & \textcolor{red}{\ProventiDaTitoli} & \\
+& \textcolor{red}{Proventi finanziari e interessi attivi} & \textcolor{red}{-} & \textcolor{red}{\ProventiFinanziariInteressiAttivi} & \\
+& \textcolor{red}{Proventi operativi non caratteristici} & \textcolor{red}{-} & \textcolor{red}{\ProventiOperativiNonCaratteristici} & \\
+& \textcolor{red}{Proventi da partecipazioni} & \textcolor{red}{-} & \textcolor{red}{\ProventiDaPartecipazioni} & \\
+& \textcolor{red}{Proventi da partecipazioni finanziarie} & \textcolor{red}{-} & \textcolor{red}{\ProventiDaPartecipazioniFinanziarie} & \\
+& \textcolor{red}{Proventi da titoli} & \textcolor{red}{-} & \textcolor{red}{\ProventiDaTitoli} & \\
+& \textcolor{red}{Rivalutazione di titoli} & \textcolor{red}{-} & \textcolor{red}{\RivalutazioneDiTitoli} & \\
+& Svalutazione di partecipazioni & & \SvalutazioneDiPartecipazioni & \\
+& Svalutazioni di titoli e partecipazioni & & \SvalutazioniDiTitoliEPartecipazioni & \\
+\textbf{F} & \textbf{Altri Proventi e Costi Operativi Non Caratteristici(Accessori)} & & & \\
+\hline
+\textbf{G=E+F} & \textbf{Risultato Operativo Complessivo} & \textbf{EBIT} & & \\
+\hline
+& Interessi passivi &  & \InteressiPassivi & \\
+& Oneri finanziari prestito obbligazionario &  & \OneriFinanziariObbligazionario & \\
+& Oneri finanziari su c/corrente &  & \OneriFinanziariCCorrente & \\
+& Oneri finanziari su mutuo &  & \OneriFinanziariMutuo & \\
+\textbf{H} & \textbf{Interessi Passivi} & & & \\
+\hline
+\textbf{I=G-H} & \textbf{Risulato Ordinario di Competenza} & & & \\
+\hline
+& Minusvalenza & & \Minusvalenza & \\
+& Oneri straordinari passivi & & \OneriStraordinariPassivi & \\
+& \textcolor{red}{Plusvalenza da alienazione} & \textcolor{red}{-} & \textcolor{red}{\PlusvalenzaAlienazione} & \\
+& \textcolor{red}{Plusvalenza da alienazione cespiti} & \textcolor{red}{-} & \textcolor{red}{\PlusvalenzaCespiti} & \\
+& \textcolor{red}{Proventi straordinari} & \textcolor{red}{-} & \textcolor{red}{\ProventiStraordinari} & \\
+& \textcolor{red}{Proventi straordinari attivi} & \textcolor{red}{-} & \textcolor{red}{\ProventiStraordinariAttivi} & \\
+& Sopravvenienza passiva per accertamento fiscale & & \SopravvenienzaPassivaAccertamentoFiscale & \\
+\textbf{L} & \textbf{Proventi e Costi(oneri) Straordinari} & & & \\
+\hline
+\textbf{M=I+L} & \textbf{Risultato Ante Imposte} & \textbf{EBT} & & \\
+\hline
+& Imposte sul reddito d'esercizio & & & \\
+\textbf{N} & \textbf{Imposte sul reddito d'esercizio} & & & \\
+\hline
+\textbf{O=M-N} & \textbf{Risultato Netto} & \textbf{NI} & & \\
+\hline
+\end{tabular}
+}
+\caption{Template voci conto economico.}
+\end{table}
+
+\newpage
+% Pagina 3: Indicatori Economici
+\section{Indici}
+\setlength{\extrarowheight}{20pt} % Adjust the padding here
+\begin{table}[ht]
+\adjustbox{max width=\textwidth,center}{ % Regola la larghezza della tabella
+\begin{tabular}{|c|c|c|c|c|l|}
+\hline
+\multicolumn{6}{|c|}{\textbf{Analisi Voci Intermedie Conto Economico}} \\
+\hline
+Indicatore & Italiano & Inglese & Formula Standard & Formula Alternativa & Note\\
+\hline
+MOL & Margine Operativo Lordo & \textit{Gross Operating Profit} & $Ricavi - Costi\ del\ venduto$  & & \\
+MOL(\%) & Margine Operativo Lordo (\%) & & $\left(\frac{Margine\ Operativo}{Ricavi}\right) \times 100$ & & \\
+EBITDA & Risultato Operativo Caratteristico & \textit{Earnings Before Interest,Taxes,Depreciation,Amortization} & $MOL - Costi\ Operativi$  & & Utile Operativo Lordo\\
+EBIT & Risultato Operativo Complessivo & \textit{Earnings Before Interest,Taxes} & $EBITDA - Costi\ Accessori$  & & Utile Operativo \\
+RO & Risultato Ordinario di competenza & \textit{Operating Income} & $EBIT - Interessi\ Passivi$  & & \\
+EBT & Reddito Ante Imposte & \textit{Earnings Before Taxes} &$RO - Costi\ Straordinari$  & & \\
+NI & Utile Netto & \textit{Net Income} & $EBT - Imposte$ & & \\
+& & & & & \\
+\hline
+\hline
+\multicolumn{6}{|c|}{\textbf{Analisi Reddituale per Indici}} \\
+\hline
+Indicatore & Italiano & Inglese & Formula Standard & Formula Alternativa & Note \\
+\hline
+ROA(\%)& Redditività degli attivi & \textit{Return on Assets}& $\frac{EBIT}{Totale\ Attivita}\times 100$ & & \roaDesc\\
+ROS(\%)& Redditività delle vendite & \textit{Return on Sales}& $\frac{Utile\ Netto}{Ricavi}\times 100$ & $\frac{EBIT}{Ricavi}\times 100$ & \rosDesc \\
+ROE(\%)& Redditività del patrimonio & \textit{Return on Equity}& $\frac{Utile\ Netto}{Capitale\ Netto}\times 100$ & & \roeDesc\\
+ROI(\%)& Redditività dell'investimento & \textit{Return on Investment}& $\frac{EBIT}{Debiti\ Finanziari + Capitale\ Netto}\times 100$& $\frac{EBIT} {Capitale\ Netto}\times 100$& \roiDesc\\
+EPA & Utile per Azione & \textit{Earnings Per Share} & $\frac{Utile\ Netto}{Numero\ di\ Azioni\ in\ Circolazione}$  & & \upaDesc\\
+& & & & & \\
+\hline
+\hline
+\multicolumn{6}{|c|}{\textbf{Analisi Finanziaria per Indici}} \\
+\hline
+Indicatore & Italiano & Inglese & Formula Standard & Formula Alternativa & Note\\
+\hline
+Ind.Liq. & Indice di Liquidità & \textit{Current Ratio}& $\frac{Attivita\ Correnti}{Passivita\ Correnti}$  & & \ilDesc \\
+Ind.Liq.Ris. & Indice di Liquidità Ristretta & \textit{Acid Test}& $\frac{Attivita\ Correnti - Rimanenze}{Passivita\ Correnti}$ & $\frac{Attivita\ Correnti\ Monetarie}{Passivita\ Correnti}$ & \ilrDesc \\
+Tas.Ind.& Tasso di Indebitamento & \textit{Debt Ratio} & $\frac{Debiti\ Finanziari}{Debiti\ Finanziari + Capitale\ Netto}$  & & \tdDesc \\
+Ind.Ind.& Indice di Indebitamento & \textit{Debt Equity Ratio} & $\frac{Debiti\ Finanziari}{Capitale\ Netto}$  & & \iiDesc \\
+Ind.Cop.Int. & Indice di Copertura degli Interessi & \textit{Interest Coverage Ratio} & $\frac{EBT + Interessi\ Passivi}{Interessi\ Passivi}$ & $\frac{Reddito Ante Imposte + Interessi\ Passivi}{Int.passivi}$ & \iciDesc \\
+Grad. Ind. & Grado di Indebitamento & \textit{Indebtedness Ratio} & $\frac{Passivita}{Capitale\ Netto}$  & & \giDesc \\
+Lev. Fin. & Leva Finanziaria & \textit{Leverage Ratio} & $\frac{Attivita}{Capitale\ Netto}$ & & \lfDesc \\
+& & & & & \\
+\hline
+\hline
+\multicolumn{6}{|c|}{\textbf{Analisi Strutturale per Margini}} \\
+\hline
+Indicatore & Italiano & Inglese & Formula Standard & Formula Alternativa & Note\\
+\hline
+Rot.Rim..& Rotazione delle Rimanenze & & $\frac{Costo\ del\ Venduto}{Rimanenze}$  & & \rrDesc \\
+Liv.Rim.& Livello delle Rimanenze & & $\frac{Rimanenze}{\frac{Costo\ del\ Venduto}{365}}$  & & \lrDesc \\
+Inc.Med.Cred.Com. & Incasso Medio dei Crediti Commerciali & & $\frac{Crediti\ Commerciali}{\frac{Ricavi}{365}}$  & & \imccDesc \\
+Giac.Med.Deb.Com. & Giacenza Media Debiti Commerciali & & $\frac{Debiti\ Fornitori}{\frac{Acquisto\ Rimanenze}{365}}$ & & \gmdcDesc \\
+Cap.Circ.Net. & Capitale Circolante Netto & & $Attivita\ Correnti - Passivita\ Correnti$ & & \ccnDesc \\
+& & & & & \\
+\hline
+\end{tabular}
+}
+\caption{Formule degli indicatori economici.}
+\end{table}
+
+\newpage
+\chapter{Pratica}
+\section{Simulazione Esame Parziale 1}
+Inserisco questa nota in quanto trovo svantaggioso, non avere accesso a una preview o simulazione, o almeno alle prove d'esame degli anni precedenti prima di affrontare un esame. Nonostante la difficoltà dell'esame possa essere elevata, ritengo che non dovrebbe costituire un'enigma, soprattutto considerando che la chiave per un buon rendimento spesso risiede nella velocità d'esecuzione e non solo nella preparazione. Con soli 60 minuti a disposizione, più 5 per una rapida revisione, è fondamentale conoscere la struttura dell'esame in anticipo. Anche se il contenuto del corso è ampio, la mancanza di chiarezza su cosa aspettarsi può portare a prestazioni non ottimali, nonostante l'impegno nello studio.
+
+Fino alla data del 15 novembre 2023, l'esame è suddiviso in circa 7 pagine, solo fronte. Nella prima pagina è richiesto di inserire cognome, nome, numero di matricola e corso di studi. La seconda pagina presenta una tabella con circa 50 voci contabili da utilizzare per riclassificare il conto economico a costo del venduto e lo stato patrimoniale. La terza pagina è una tabella vuota in cui strutturare il conto economico a costo del venduto con i risultati intermedi. La quarta pagina è una tabella vuota per la strutturazione dello stato patrimoniale. La quinta pagina contiene una tabella per esplicitare le formule degli indici e calcolarli. Le pagine 6-7 contengono 10 domande a risposta multipla su argomenti trattati nel libro "Il Bilancio", inclusi il Bilancio Sociale (slide fornite). Le risposte devono essere segnate in modo definitivo in una tabella alla fine del compito, seguendo un template che ricordo essere il seguente.
+
+\newpage
+
+\begin{table}[ht]
+    \Huge{
+\begin{tabular}{l c}
+    COGNOME : &\\
+    NOME : &\\
+    NUMERO DI MATRICOLA : &\\
+    CORSO DI STUDI : & \\
+\end{tabular}
+}
+\end{table}
+
+\newpage
+\enlargethispage{\baselineskip}
+\setlength{\extrarowheight}{1pt} % Adjust the padding here
+\normalsize
+\centering
+\begin{longtable}{|l|r|}
+    \hline
+    \textbf{Voce} & \textbf{Importo (€)} \\
+    \hline
+    Costi di ricerca e sviluppo capitalizzati & 880 \\
+    \hline
+    Marchi e brevetti industriali & 490 \\
+    \hline
+    Avviamento & 138 \\
+    \hline
+    Terreni e fabbricati & 1,200 \\
+    \hline
+    Impianti e macchinari & 2,850 \\
+    \hline
+    Immobili civili & 560 \\
+    \hline
+    Partecipazioni strategiche in imprese controllate & 352 \\
+    \hline
+    Crediti finanziari a lungo termine & 240 \\
+    \hline
+    Rimanenze iniziali di materie prime & 1,410 \\
+    \hline
+    Rimanenze finali di materie prime & 1,750 \\
+    \hline
+    Rimanenze finali di prodotti finiti e semilavorati & 1,090 \\
+    \hline
+    Rimanenze iniziali di prodotti finiti e semilavorati & 1,430 \\
+    \hline
+    Crediti commerciali & 1,751 \\
+    \hline
+    Crediti commerciali verso imprese controllate & 345 \\
+    \hline
+    Cambiali attive & 148 \\
+    \hline
+    Titoli in portafoglio non costituenti immobilizzazioni & 925 \\
+    \hline
+    Costi anticipati & 755 \\
+    \hline
+    Denaro e valori in cassa & 670 \\
+    \hline
+    Fondo svalutazione crediti commerciali & 56 \\
+    \hline
+    Ratei attivi & 160 \\
+    \hline
+    Capitale sociale & 2,143 \\
+    \hline
+    Riserve di utili & 1,750 \\
+    \hline
+    Fondo rischi e oneri & 1,056 \\
+    \hline
+    Trattamento di fine rapporto & 580 \\
+    \hline
+    Debiti obbligazionari di lungo termine & 1,037 \\
+    \hline
+    Mutui & 1,265 \\
+    \hline
+    Debiti vs banche (c/corrente) & 1,040 \\
+    \hline
+    Altri debiti finanziari (entro l’esercizio) & 325 \\
+    \hline
+    Altri debiti finanziari (oltre l’esercizio) & 1,320 \\
+    \hline
+    Debiti vs fornitori & 1,367 \\
+    \hline
+    Anticipi da clienti & 485 \\
+    \hline
+    Ricavi dalle vendite & 10,150 \\
+    \hline
+    Altri ricavi e proventi caratteristici & 175 \\
+    \hline
+    Affitto attivo da immobile civile & 78 \\
+    \hline
+    Acquisto di materie prime & 2,990 \\
+    \hline
+    Consulenze industriali & 287 \\
+    \hline
+    Pubblicità & 106 \\
+    \hline
+    Quota ammortamento brevetti industriali & 113 \\
+    \hline
+    Salari e oneri industriali & 1,275 \\
+    \hline
+    Stipendi e oneri amministrativi e commerciali & 345 \\
+    \hline
+    Quota TFR industriale & 260 \\
+    \hline
+    Quota TFR amministrativo e commerciale & 71 \\
+    \hline
+    Ammortamenti amministrativi e commerciali & 144 \\
+    \hline
+    Ammortamenti industriali & 578 \\
+    \hline
+    Quota ammortamento immobile civile & 95 \\
+    \hline
+    Accantonamento svalutazione crediti & 75 \\
+    \hline
+    Proventi da partecipazioni finanziarie & 55 \\
+    \hline
+    Altri proventi finanziari e interessi attivi & 144 \\
+    \hline
+    Interessi passivi & 405 \\
+    \hline
+    Resi su vendite & 65 \\
+    \hline
+    Proventi straordinari & 35 \\
+    \hline
+    Minusvalenza & 68 \\
+    \hline
+    Debiti tributari & 0 \\
+    \hline
+    Dividendi versati & 0 \\
+    \hline
+    Imposte & 50\% utile ante-imposte \\
+    \hline
+\end{longtable}
+\label{tab:bilancio}
+
+
+\begin{longtable}{|m{10cm}|m{2cm}|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Conto Economico}} \\
+    \hline
+    & \\ % Righe vuote per il contenuto della tabella
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+    & \\
+    \hline
+\end{longtable}
+\label{tab:Conto Economico}
+
+\begin{longtable}{|m{6cm}|m{0.5cm}|m{6cm}|m{0.5cm}|}
+    \hline
+    \multicolumn{4}{|c|}{\textbf{Stato Patrimoniale}} \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+    & & & \\
+    \hline
+\end{longtable}
+\label{tab:Stato Patrimoniale}
+\raggedright
+\setlength{\extrarowheight}{10pt} % Adjust the padding here
+\begin{tabular}{|m{3cm}|m{6cm}|m{3cm}|}
+\hline
+Indice & Formula & Risultato \\
+\hline
+Indice 1 & &\\
+\hline
+Indice 2 & &\\
+\hline
+Indice 3 & &\\
+\hline
+Indice 4 & &\\
+\hline
+Indice 5 & &\\
+\hline
+\end{tabular}
+\newpage
+\setlength{\extrarowheight}{1pt} % Adjust the padding here
+Qui ci sono delle multiple chioce.\\
+Le risposte considerate sono esclusivamente quelle indicate nella tabella alla fine. Qualsiasi scelta effettuata in precedenza non verrà presa in considerazione. È necessario contrassegnare con una "x" nella tabella alla fine. In caso di cambio di opinione, scrivere "no" accanto alla risposta precedentemente selezionata, indicando la risposta corretta con una freccetta.\\
+\begin{enumerate}
+    
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\item Testo a caso Multiple Choice.\\
+\begin{enumerate}[label=\Alph*]
+    \item \lorem
+    \item \lorem
+    \item \lorem
+    \item \lorem
+\end{enumerate}
+\end{enumerate}a
+
+\begin{longtable}{|l|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+        \hline
+        Domanda 1 & A & B & C & D \\
+        \hline
+        Domanda 2 & A & B & C & D \\
+        \hline
+        Domanda 3 & A & B & C & D \\
+        \hline
+        Domanda 4 & A & B & C & D \\
+        \hline
+        Domanda 5 & A & B & C & D \\
+        \hline
+        Domanda 6 & A & B & C & D \\
+        \hline
+        Domanda 7 & A & B & C & D \\
+        \hline
+        Domanda 8 & A & B & C & D \\
+        \hline
+        Domanda 9 & A & B & C & D \\
+        \hline
+        Domanda 10 & A & B & C & D \\
+        \hline
+    \end{longtable} 
+\end{document}
