@@ -13,30 +13,32 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install LaTeX
+    - name: Install LaTeX and pandoc
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-xetex latexmk
+        sudo apt-get install -y texlive-xetex latexmk pandoc
 
-    - name: Build LaTeX document
+    - name: Build LaTeX document and Convert to HTML
       run: |
         latexmk -pdf -interaction=nonstopmode -f docs/Formulario.tex
+        pandoc -s -o docs/index.html docs/Formulario.pdf
 
-    - name: Move PDF to docs
+    - name: Move PDF and HTML to docs
       run: |
         mv Formulario.pdf docs/
+        mv index.html docs/
 
-    - name: Upload PDF artifact
+    - name: Upload PDF and HTML artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: formulario-pdf
-        path: docs/Formulario.pdf
+        name: formulario-artifacts
+        path: docs/
 
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        files: docs/Formulario.pdf
+        files: docs/Formulario.pdf, docs/index.html
         tag_name: v${{ github.run_number }}
         title: Release ${{ github.run_number }}
         token: ${{ secrets.GH_TOKEN }}
@@ -45,4 +47,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_TOKEN }}
-        publish_dir: ./docs/Formulario.pdf
+        publish_dir: ./docs
