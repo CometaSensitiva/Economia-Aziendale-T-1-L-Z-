@@ -13,9 +13,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: List files in docs before compilation (debug)
-      run: ls -la docs/
-
     - name: Install LaTeX
       run: |
         sudo apt-get update
@@ -29,11 +26,17 @@ jobs:
       run: |
         mv Formulario.pdf docs/
 
-    - name: List files in docs after compilation (debug)
-      run: ls -la docs/
-
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v2
       with:
         name: formulario-pdf
         path: docs/Formulario.pdf
+
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: docs/Formulario.pdf
+        tag_name: v${{ github.run_number }}
+        title: Release ${{ github.run_number }}
+        token: ${{ secrets.GITHUB_TOKEN }}
