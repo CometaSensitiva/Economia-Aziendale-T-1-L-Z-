@@ -3,7 +3,7 @@ name: Compile LaTeX
 on:
   push:
     branches:
-      - main # o il nome della tua branch principale
+      - main
 
 jobs:
   build:
@@ -13,10 +13,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up LaTeX
-      uses: dante-ev/latex-action@latest
-      with:
-        root_file: Formulario.tex # il nome del tuo file principale .tex
+    - name: Install LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-xetex
 
     - name: Build LaTeX document
       run: |
@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: formulario-pdf
-        path: Formulario.pdf # il nome del tuo file PDF generato
+        path: Formulario.pdf
