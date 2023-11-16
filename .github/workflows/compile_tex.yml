@@ -1,4 +1,4 @@
-name: Compile LaTeX
+name: Compile LaTeX and Publish
 
 on:
   push:
@@ -32,11 +32,8 @@ jobs:
         name: formulario-pdf
         path: docs/Formulario.pdf
 
-    - name: Create Release
-      id: create_release
-      uses: softprops/action-gh-release@v1
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        files: docs/Formulario.pdf
-        tag_name: v${{ github.run_number }}
-        title: Release ${{ github.run_number }}
-        token: ${{ secrets.GH_TOKEN }}
+        github_token: ${{ secrets.GH_TOKEN }}
+        publish_dir: ./docs
