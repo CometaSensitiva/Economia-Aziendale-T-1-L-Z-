@@ -13,23 +13,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install LaTeX and TeX4ht
+    - name: Install LaTeX and Pandoc
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-xetex tex4ht
+        sudo apt-get install -y texlive-xetex latexmk pandoc
 
-    - name: Install latexmk
-      run: sudo apt-get install -y latexmk
-
-    - name: Build LaTeX document and Convert to HTML
+    - name: Build LaTeX document
       run: |
         latexmk -pdf -interaction=nonstopmode -f docs/Formulario.tex
-        htlatex docs/Formulario.tex
 
-    - name: Move PDF and HTML to docs
+    - name: Move PDF to docs
       run: |
         mv Formulario.pdf docs/
-        mv Formulario.html docs/index.html
+
+    - name: Convert LaTeX to HTML
+      run: |
+        pandoc -s -o docs/index.html docs/Formulario.tex
 
     - name: Upload PDF and HTML artifacts
       uses: actions/upload-artifact@v2
@@ -41,7 +40,7 @@ jobs:
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        files: docs/Formulario.pdf, docs/index.html
+        files: docs/Formulario.pdf
         tag_name: v${{ github.run_number }}
         title: Release ${{ github.run_number }}
         token: ${{ secrets.GH_TOKEN }}
