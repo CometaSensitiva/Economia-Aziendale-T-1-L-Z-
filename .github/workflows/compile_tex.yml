@@ -22,8 +22,13 @@ jobs:
       run: |
         latexmk -pdf -interaction=nonstopmode Formulario.tex
 
+    - name: Move PDF to docs
+      run: |
+        mkdir -p docs
+        mv Formulario.pdf docs/
+
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v2
       with:
         name: formulario-pdf
-        path: Formulario.pdf
+        path: docs/Formulario.pdf
