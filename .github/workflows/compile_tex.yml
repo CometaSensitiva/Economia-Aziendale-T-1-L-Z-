@@ -20,7 +20,7 @@ jobs:
 
     - name: Build LaTeX document
       run: |
-        latexmk -pdf -interaction=nonstopmode Formulario.tex
+        latexmk -pdf -interaction=nonstopmode -f docs/Formulario.tex
 
     - name: Move PDF to docs
       run: |
