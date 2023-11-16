@@ -13,20 +13,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install LaTeX and pandoc
+    - name: Install LaTeX and TeX4ht
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-xetex latexmk pandoc
+        sudo apt-get install -y texlive-xetex tex4ht
 
     - name: Build LaTeX document and Convert to HTML
       run: |
         latexmk -pdf -interaction=nonstopmode -f docs/Formulario.tex
-        pandoc -s -o docs/index.html docs/Formulario.pdf
+        htlatex docs/Formulario.tex
 
     - name: Move PDF and HTML to docs
       run: |
         mv Formulario.pdf docs/
-        mv index.html docs/
+        mv Formulario.html docs/index.html
 
     - name: Upload PDF and HTML artifacts
       uses: actions/upload-artifact@v2
