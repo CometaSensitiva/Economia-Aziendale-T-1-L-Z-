@@ -13,6 +13,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: List files in docs before compilation (debug)
+      run: ls -la docs/
+
     - name: Install LaTeX
       run: |
         sudo apt-get update
@@ -24,8 +27,10 @@ jobs:
 
     - name: Move PDF to docs
       run: |
-        mkdir -p docs
         mv Formulario.pdf docs/
+
+    - name: List files in docs after compilation (debug)
+      run: ls -la docs/
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v2
